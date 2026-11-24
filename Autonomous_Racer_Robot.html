@@ -2026,10 +2026,9 @@
   </script>
   <!-- Interactive 3D Video Guide Stylesheet -->
   <link rel="stylesheet" href="racer_video_guide.css">
-  <!-- Preload 3D Model Asset -->
-  <link rel="preload" href="3D_Models/AutonomousRacerBot.glb" as="fetch" type="model/gltf-binary" crossorigin>
-  <link rel="preload" href="3D_Models/motor_clamp.glb" as="fetch" type="model/gltf-binary" crossorigin>
-  <link rel="preload" href="3D_Models/Original_Robojunkies_wheel.glb" as="fetch" type="model/gltf-binary" crossorigin>
+  <!-- Preload 3D Model Assets -->
+  <link rel="preload" href="3D_Models/arduino_uno.glb" as="fetch" type="model/gltf-binary" crossorigin>
+  <link rel="preload" href="3D_Models/l298n.glb" as="fetch" type="model/gltf-binary" crossorigin>
   <!-- Google model-viewer for Interactive 3D Model Inspection -->
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
   <script type="module">
@@ -2083,20 +2082,20 @@
     <section id="overview">
       <div class="hero">
         <div class="hero-image">
-          <img src="Automonus_racer_Bot_v2.jpg" alt="Autonomous Racer Robot v2 — 4WD with L298N and N20 Motors" loading="eager">
+          <img src="Automonus_racer_Bot_v2.jpg" alt="Autonomous Racer Robot — BO DC Motor Edition with L298N and 18650 Li-Ion Power" loading="eager">
         </div>
         <div class="hero-text">
-          <span class="tag">Robotics Project &middot; 4WD Edition</span>
+          <span class="tag">Robotics Project &middot; BO DC Motor Edition</span>
           <h1>Autonomous Racer Robot</h1>
-          <p class="subtitle">Also known as: <strong>Fork Robot (4WD Edition)</strong></p>
-          <p class="desc">This robot uses an Arduino UNO, three forward ultrasonic sensors, an L298N dual H-bridge motor driver module, and four 300 RPM N20 micro gear motors to detect obstacles and navigate automatically.</p>
+          <p class="subtitle">Also known as: <strong>Fork Robot (BO DC Motor Edition)</strong></p>
+          <p class="desc">This robot uses an Arduino UNO, three forward ultrasonic sensors, an L298N dual H-bridge motor driver module, 1:48 single-axis BO DC gear motors, and dual 3.7V 18650 Li-Ion cells (7.4V) with a switched holder to detect obstacles and navigate automatically.</p>
           <div class="badges">
             <span class="badge">Arduino UNO</span>
             <span class="badge">3 Ultrasonic Sensors</span>
-            <span class="badge">4 N20 Motors (300 RPM)</span>
+            <span class="badge">BO DC Gear Motors (1:48)</span>
             <span class="badge">L298N Motor Driver</span>
-            <span class="badge">7.4V LiPo Power</span>
-            <span class="badge">4WD All-Wheel Drive</span>
+            <span class="badge">2&times; 18650 Li-Ion (7.4V)</span>
+            <span class="badge">Switched Battery Holder</span>
           </div>
           <button type="button" class="hero-video-cta" onclick="scrollToVideoAndPlay()">
             <span>&#9654;</span> Watch Interactive 3D Video Guide (4:20)
@@ -2111,14 +2110,14 @@
         <h2>&#127916; Interactive 3D Build, Wiring &amp; Code Video Guide</h2>
         <span class="rvg-duration-pill"><span class="rvg-duration-dot"></span> 4:20 &bull; 8 Chapters &bull; Interactive 3D</span>
       </div>
-      <p>Watch the entire Autonomous Racer Robot come together in 3D &mdash; all 14 components, step-by-step mechanical assembly, pin-by-pin ultrasonic &amp; L298N wiring, live Arduino code sync, and an autonomous obstacle course run. Pause and drag anytime to inspect any screw or wire up close!</p>
+      <p>Watch the Autonomous Racer Robot come together in 3D &mdash; all hardware components, step-by-step mechanical assembly, pin-by-pin ultrasonic &amp; L298N wiring, live Arduino code sync, and an autonomous obstacle course run. Pause and drag anytime to inspect any connection up close!</p>
       <div id="racerVideoGuideMount"></div>
     </section>
 
     <!-- SECTION 2: COMPONENTS -->
     <section id="components">
       <h2>Required Components</h2>
-      <p>Everything needed to build the Autonomous Racer Robot.</p>
+      <p>Everything needed to build the Autonomous Racer Robot (BO DC Motor Edition).</p>
       <div style="overflow-x:auto">
         <table class="comp-table">
           <thead>
@@ -2147,96 +2146,54 @@
             </tr>
             <tr>
               <td>3</td>
-              <td>Orange 7.4V 850mAh 2S LiPo Battery</td>
-              <td>Rechargeable high-discharge 2S LiPo pack (30C/60C)</td>
-              <td>1</td>
-              <td class="price">&#8377;500 &ndash; &#8377;750</td>
+              <td>DMEGC INR18650-29E 3.7V 2900mAh Li-Ion Battery</td>
+              <td>Rechargeable 18650 lithium-ion cell (2 in series = 7.4V nominal, 2900mAh)</td>
+              <td>2</td>
+              <td class="price">&#8377;180 &ndash; &#8377;260 each</td>
             </tr>
             <tr>
               <td>4</td>
+              <td>18650 &times; 2 Battery Holder with Cover &amp; ON/OFF Switch</td>
+              <td>2-cell series 18650 ABS case with slide cover, built-in power switch &amp; wire leads</td>
+              <td>1</td>
+              <td class="price">&#8377;60 &ndash; &#8377;120</td>
+            </tr>
+            <tr>
+              <td>5</td>
               <td>L298N Motor Driver Module</td>
               <td>Dual H-Bridge motor driver board (2A per channel)</td>
               <td>1</td>
               <td class="price">&#8377;150 &ndash; &#8377;300</td>
             </tr>
             <tr>
-              <td>5</td>
-              <td>N20 Micro DC Gear Motors</td>
-              <td>300 RPM micro metal reduction gear motors (4WD)</td>
+              <td>6</td>
+              <td>BO Motor (1:48 Single-Axis, Strong Magnet &amp; EMC)</td>
+              <td>High-torque 1:48 DC geared BO motor with strong magnet &amp; EMC suppression</td>
               <td>4</td>
-              <td class="price">&#8377;120 &ndash; &#8377;250 each</td>
+              <td class="price">&#8377;70 &ndash; &#8377;130 each</td>
             </tr>
             <tr>
-              <td>6</td>
+              <td>7</td>
               <td>Multi-Color Jumper Wires</td>
               <td>Male-to-male &amp; male-to-female DuPont interconnect wires</td>
               <td>As required</td>
               <td class="price">&#8377;50 &ndash; &#8377;100</td>
             </tr>
             <tr>
-              <td>7</td>
-              <td>Cricket Bat Grip (Wheel Tire Sleeve)</td>
-              <td>High-traction octopus texture rubber tire wrap for wheels</td>
-              <td>1</td>
-              <td class="price">&#8377;80 &ndash; &#8377;150</td>
-            </tr>
-            <tr>
               <td>8</td>
               <td>Double-Sided Tape</td>
-              <td>Heavy-duty acrylic/foam adhesive mounting tape (battery &amp; sensor mounting)</td>
+              <td>Heavy-duty acrylic/foam adhesive mounting tape (battery holder &amp; module mounting)</td>
               <td>1 Roll</td>
               <td class="price">&#8377;100 &ndash; &#8377;200</td>
             </tr>
-            <tr>
-              <td>9</td>
-              <td>4WD Robot Chassis Platform</td>
-              <td>Custom 3D-printed chassis baseplate with angled sensor bumper (<code>AutonomousRacerBot.stl</code>)</td>
-              <td>1</td>
-              <td class="price">&#8377;250 &ndash; &#8377;500 (3D printed)</td>
-            </tr>
-            <tr>
-              <td>10</td>
-              <td>Wheel 3D model &times;4</td>
-              <td>Custom 3D-printable drive wheels with N20 D-shaft hub (<code>Original Robojunkies.step</code>)</td>
-              <td>4</td>
-              <td class="price">&#8377;40 &ndash; &#8377;100 (4&times; 3D printed)</td>
-            </tr>
-            <tr>
-              <td>11</td>
-              <td>3D-Printed Motor Mounting Clamps</td>
-              <td>Custom 3D-printable brackets to clamp 4&times; micro gear motors onto chassis (<code>motor clamp.stl</code>)</td>
-              <td>4</td>
-              <td class="price">&#8377;40 &ndash; &#8377;100 (4&times; 3D printed)</td>
-            </tr>
-            <tr>
-              <td>12</td>
-              <td>M2 &times; 10mm Socket Head Cap Bolts</td>
-              <td>Stainless steel 304 Allen socket head cap screws for motor clamps</td>
-              <td>8&ndash;12</td>
-              <td class="price">&#8377;30 &ndash; &#8377;60 (pack)</td>
-            </tr>
-            <tr>
-              <td>13</td>
-              <td>Stainless steel hex nuts &times;3</td>
-              <td>EasyMech M2 stainless steel hexagonal lock nuts</td>
-              <td>As required</td>
-              <td class="price">&#8377;30 &ndash; &#8377;60 (pack)</td>
-            </tr>
-            <tr>
-              <td>14</td>
-              <td>M3 &times; 10mm Hex CSK Screws &times;3</td>
-              <td>Grade 10.9 high-tensile black oxide Allen countersunk screws (Dia. 3mm, Length 10mm)</td>
-              <td>3</td>
-              <td class="price">&#8377;15 &ndash; &#8377;30</td>
-            </tr>
             <tr class="total-row">
-              <td colspan="4"><strong>Approximate Project Total</strong></td>
-              <td class="price"><strong>&#8377;2,495 &ndash; &#8377;4,450</strong></td>
+              <td colspan="4"><strong>Approximate Components Total (Electronics &amp; Drive)</strong></td>
+              <td class="price"><strong>&#8377;1,680 &ndash; &#8377;2,760</strong></td>
             </tr>
           </tbody>
         </table>
       </div>
-      <p class="note-sm">&#9432; Approximate India price. Actual price may vary depending on supplier, quality and
+      <p class="note-sm">&#9432; Approximate India price. Actual price may vary depending on supplier, quality, and
         quantity.</p>
     </section>
 
@@ -2341,50 +2298,93 @@
         </div>
 
 
-        <!-- CARD 3: Orange 7.4V 850mAh 2S LiPo Battery -->
+        <!-- CARD 3: DMEGC INR18650-29E 3.7V 2900mAh Li-Ion Battery x2 -->
         <div class="comp-card" id="card-c3">
           <div class="comp-card-media" onclick="toggleComp('c3')">
             <img class="comp-img-large"
-              src="battery.jpg"
-              alt="Orange 7.4V 850mAh 2S LiPo Battery" loading="lazy">
-            <span class="comp-badge">Power &middot; 7.4V LiPo 2S</span>
+              src="li_ion_battery.jpg"
+              alt="DMEGC INR18650-29E 3.7V 2900mAh Li-Ion Battery" loading="lazy">
+            <span class="comp-badge">Power &middot; 3.7V Li-Ion &times;2</span>
           </div>
           <div class="comp-card-body">
             <div class="comp-header-row" onclick="toggleComp('c3')">
               <div>
-                <h3 class="comp-name">Orange 7.4V 850mAh 2S LiPo Battery</h3>
-                <div class="comp-subtitle">High-Discharge Lithium Polymer Battery Pack</div>
+                <h3 class="comp-name">Li-Ion 3.7V 2900mAh Battery &times;2</h3>
+                <div class="comp-subtitle">DMEGC INR18650-29E Rechargeable Lithium-Ion Cells</div>
               </div>
               <button class="toggle-btn" id="btn-c3" onclick="event.stopPropagation();toggleComp('c3')"
                 aria-label="Toggle details">Details &#9662;</button>
             </div>
-            <p class="comp-desc">Lightweight, high-current rechargeable 2S LiPo battery supplying consistent 7.4V nominal power to the 4WD drive motors and the onboard electronics.</p>
+            <p class="comp-desc">Two high-capacity 18650 rechargeable lithium-ion cells wired in series to supply a steady 7.4V nominal (8.4V fully charged) power source with long driving runtime.</p>
             <div class="comp-tags">
-              <span class="spec-tag">7.4V (2S Nominal)</span>
-              <span class="spec-tag">850 mAh Capacity</span>
-              <span class="spec-tag">30C / 60C Burst</span>
-              <span class="spec-tag">Rechargeable LiPo</span>
-              <span class="spec-tag">JST-XH Balance Lead</span>
+              <span class="spec-tag">3.7V per Cell (7.4V 2S)</span>
+              <span class="spec-tag">2900 mAh Capacity</span>
+              <span class="spec-tag">INR18650-29E</span>
+              <span class="spec-tag">Rechargeable Li-Ion</span>
+              <span class="spec-tag">Long Runtime</span>
             </div>
             <div class="comp-details" id="c3">
               <div class="comp-detail-box">
                 <h4>What is it?</h4>
-                <p>A 2-cell (2S) Lithium Polymer battery pack delivering 7.4V nominal (8.4V fully charged) with an 850mAh capacity and high discharge rate (30C continuous, 60C burst).</p>
+                <p>Industrial-grade DMEGC INR18650-29E cylindrical lithium-ion cells rated at 3.7V nominal and 2900mAh capacity each. Placing two cells in series produces 7.4V nominal (8.4V peak).</p>
               </div>
               <div class="comp-detail-box">
                 <h4>Why do we use it?</h4>
-                <p>Far superior to heavy 9V alkaline blocks. Delivers high instantaneous current without voltage sag when all four N20 gear motors reverse or accelerate rapidly during sharp obstacle avoidance maneuvers.</p>
+                <p>Delivers over 3&times; the battery life of compact LiPo packs and far stronger current output than 9V blocks, keeping the BO DC motors and Arduino running smoothly without voltage drops.</p>
               </div>
             </div>
 
-            <a class="buy-btn" href="https://robu.in/product/orange-850mah-2s-30c-60c-lithium-polymer-battery-pack-lipo/" target="_blank" rel="noopener noreferrer">
+            <a class="buy-btn" href="https://robu.in/product/dmegc-inr18650-29e-3-7v-2900mah-li-ion-battery/" target="_blank" rel="noopener noreferrer">
               <span class="buy-btn-icon">&#128722;</span> Buy on Robu.in
             </a>
           </div>
         </div>
 
 
-        <!-- CARD 4: L298N Motor Driver Module -->
+        <!-- CARD 4: 18650 x 2 Battery Holder with Cover and ON/OFF Switch -->
+        <div class="comp-card" id="card-c4-holder">
+          <div class="comp-card-media" onclick="toggleComp('c4-holder')">
+            <img class="comp-img-large"
+              src="battery_holder.jpg"
+              alt="18650 x 2 Battery Holder with Cover and ON/OFF Switch" loading="lazy">
+            <span class="comp-badge">Power &middot; 2S Switched Case</span>
+          </div>
+          <div class="comp-card-body">
+            <div class="comp-header-row" onclick="toggleComp('c4-holder')">
+              <div>
+                <h3 class="comp-name">18650 &times; 2 Battery Holder</h3>
+                <div class="comp-subtitle">Enclosed 2-Cell Series Case with Cover &amp; ON/OFF Switch</div>
+              </div>
+              <button class="toggle-btn" id="btn-c4-holder" onclick="event.stopPropagation();toggleComp('c4-holder')"
+                aria-label="Toggle details">Details &#9662;</button>
+            </div>
+            <p class="comp-desc">Protective ABS plastic holder for two 18650 Li-Ion batteries in series (7.4V output), featuring a sliding lid, built-in power switch, and pre-stripped red/black power leads.</p>
+            <div class="comp-tags">
+              <span class="spec-tag">2&times; 18650 Series (7.4V)</span>
+              <span class="spec-tag">Built-in ON/OFF Switch</span>
+              <span class="spec-tag">Slide Protective Cover</span>
+              <span class="spec-tag">Red (+) / Black (&minus;) Leads</span>
+              <span class="spec-tag">Easy Cell Swap</span>
+            </div>
+            <div class="comp-details" id="c4-holder">
+              <div class="comp-detail-box">
+                <h4>What is it?</h4>
+                <p>A sturdy enclosed battery case with stainless spring contacts that connects two 3.7V 18650 cells in series to output 7.4V through color-coded wires, controlled by an integrated ON/OFF slide switch.</p>
+              </div>
+              <div class="comp-detail-box">
+                <h4>Why do we use it?</h4>
+                <p>Makes powering the robot safe and beginner-friendly: you can toggle power on/off cleanly without unplugging wires, and remove the 18650 cells effortlessly for external recharging.</p>
+              </div>
+            </div>
+
+            <a class="buy-btn" href="https://robu.in/product/18650-x-2-battery-holder-with-cover-and-on-off-switch/" target="_blank" rel="noopener noreferrer">
+              <span class="buy-btn-icon">&#128722;</span> Buy on Robu.in
+            </a>
+          </div>
+        </div>
+
+
+        <!-- CARD 5: L298N Motor Driver Module -->
         <div class="comp-card" id="card-c4">
           <div class="comp-card-media" onclick="toggleComp('c4')">
             <img class="comp-img-large"
@@ -2402,7 +2402,7 @@
                 aria-label="Toggle details">Details &#9662;</button>
             </div>
             <p class="comp-desc">Amplifies low-current logic signals from the Arduino to control speed and direction of
-              the four N20 DC motors via two H-bridge channels.</p>
+              the BO DC gear motors via two H-bridge channels.</p>
             <div class="comp-tags">
               <span class="spec-tag">2A Peak per Channel</span>
               <span class="spec-tag">5V&ndash;35V Motor Power</span>
@@ -2430,45 +2430,43 @@
         </div>
 
 
-        <!-- CARD 5: N20 DC Gear Motors x4 -->
+        <!-- CARD 6: BO Motor (1:48 Single-Axis, Strong Magnet & EMC) -->
         <div class="comp-card" id="card-c5">
           <div class="comp-card-media" onclick="toggleComp('c5')">
             <img class="comp-img-large"
-              src="M20_Motor.jpg"
-              alt="N20 DC Micro Metal Gear Motors" loading="lazy">
-            <span class="comp-badge">Actuators &middot; 4WD Propulsion</span>
+              src="bo_motor.jpg"
+              alt="BO Motor 1:48 Single-Axis DC Gear Motor with Strong Magnet and EMC" loading="lazy">
+            <span class="comp-badge">Actuators &middot; 1:48 BO Motor</span>
           </div>
           <div class="comp-card-body">
             <div class="comp-header-row" onclick="toggleComp('c5')">
               <div>
-                <h3 class="comp-name">N20 DC Gear Motors &times;4</h3>
-                <div class="comp-subtitle">300 RPM Micro Metal Gear Motors</div>
+                <h3 class="comp-name">BO Motor (1:48 Single-Axis)</h3>
+                <div class="comp-subtitle">Strong Magnet &amp; EMC Suppressed DC Geared Motor</div>
               </div>
               <button class="toggle-btn" id="btn-c5" onclick="event.stopPropagation();toggleComp('c5')"
                 aria-label="Toggle details">Details &#9662;</button>
             </div>
-            <p class="comp-desc">Four micro metal gear motors provide robust all-wheel drive (4WD) traction and responsive differential steering for agile obstacle racing.</p>
+            <p class="comp-desc">Reliable 1:48 reduction BO DC geared motor featuring strong magnets for higher torque and built-in EMC noise suppression for stable, glitch-free Arduino performance.</p>
             <div class="comp-tags">
-              <span class="spec-tag">N20 Micro Motor</span>
-              <span class="spec-tag">300 RPM Gearbox</span>
-              <span class="spec-tag">All-Metal Gears</span>
-              <span class="spec-tag">4WD Configuration</span>
-              <span class="spec-tag">Compact &amp; Quiet</span>
+              <span class="spec-tag">1:48 Gear Ratio</span>
+              <span class="spec-tag">Single-Axis Shaft</span>
+              <span class="spec-tag">Strong Magnet Torque</span>
+              <span class="spec-tag">Built-in EMC Filter</span>
+              <span class="spec-tag">3V&ndash;12V DC Operating</span>
             </div>
             <div class="comp-details" id="c5">
               <div class="comp-detail-box">
                 <h4>What is it?</h4>
-                <p>High-precision micro DC motors integrated with an all-metal reduction gearbox that trades high motor
-                  speed for high wheel torque in an ultra-compact form factor.</p>
+                <p>A battery-operated (BO) DC gear motor with a 1:48 internal reduction gearbox, single-side flat drive shaft, strong magnetic stator, and electromagnetic compatibility (EMC) anti-interference protection.</p>
               </div>
               <div class="comp-detail-box">
                 <h4>Why do we use it?</h4>
-                <p>Four 300 RPM motors provide exceptional traction and quick differential steering response, giving
-                  the robot agile maneuvering in tight indoor spaces.</p>
+                <p>Affordable, rugged, and easy for students to wire and mount. Built-in EMC suppression prevents electrical motor noise from resetting the Arduino UNO or disturbing ultrasonic distance readings.</p>
               </div>
             </div>
 
-            <a class="buy-btn" href="https://robu.in/product/n20-6v-300-rpm-micro-metal-gear-motor/" target="_blank" rel="noopener noreferrer">
+            <a class="buy-btn" href="https://robu.in/product/1a48-bo-motor-single-axis-black-strong-magnet-emc/" target="_blank" rel="noopener noreferrer">
               <span class="buy-btn-icon">&#128722;</span> Buy on Robu.in
             </a>
           </div>
@@ -2521,55 +2519,12 @@
         </div>
 
 
-        <!-- CARD 7: Cricket Bat Grip (Rubber Wheel Tire Sleeve) -->
-        <div class="comp-card" id="card-c7">
-          <div class="comp-card-media" onclick="toggleComp('c7')">
-            <img class="comp-img-large"
-              src="bat_grip.jpg"
-              alt="Cricket Bat Grip Wheel Tire Sleeve" loading="lazy">
-            <span class="comp-badge">Traction &middot; Wheel Grip</span>
-          </div>
-          <div class="comp-card-body">
-            <div class="comp-header-row" onclick="toggleComp('c7')">
-              <div>
-                <h3 class="comp-name">Cricket Bat Grip</h3>
-                <div class="comp-subtitle">High-Friction Octopus Texture Tire Wrap</div>
-              </div>
-              <button class="toggle-btn" id="btn-c7" onclick="event.stopPropagation();toggleComp('c7')"
-                aria-label="Toggle details">Details &#9662;</button>
-            </div>
-            <p class="comp-desc">Textured rubber octopus grip sleeve cut into rings and stretched over the 4 wheels for maximum surface traction and zero wheel slip.</p>
-            <div class="comp-tags">
-              <span class="spec-tag">Octopus Grip Texture</span>
-              <span class="spec-tag">High Friction</span>
-              <span class="spec-tag">Anti-Skid</span>
-              <span class="spec-tag">Elastic Fit for 34mm Wheels</span>
-              <span class="spec-tag">Durable Rubber</span>
-            </div>
-            <div class="comp-details" id="c7">
-              <div class="comp-detail-box">
-                <h4>What is it?</h4>
-                <p>A high-grade flexible rubber cricket bat grip featuring a raised octopus-suction dot texture. Easily cut with scissors into custom-width circular bands that slide snugly over the 34mm small wheels.</p>
-              </div>
-              <div class="comp-detail-box">
-                <h4>Why do we use it?</h4>
-                <p>Significantly improves wheel friction on smooth tiles, wood, and concrete floors. Eliminates wheel spin during rapid motor starts and prevents drifting during sharp differential turns, giving the robot razor-sharp handling.</p>
-              </div>
-            </div>
-
-            <a class="buy-btn" href="https://www.amazon.in/DSC-Octopus-Cricket-Grip-Color/dp/B0BG8SYZB7/ref=sr_1_2_sspa?crid=1ZDS9AO4BKF08&amp;dib=eyJ2IjoiMSJ9.ZEjkTyPdEPl0RTgiDX-Vc_ApDEjVzA_GFK-jOz5sKo36DBu07mY2sfvht--u61u5MQ1Prn8RE_paWZFFaI1jjYwD_J_oEm5ZCSZZrwUhDen7th0N9tT1KZUxn9SezTpHxTShbod7s2n8H9BDzN4Sa0Ty8D-_6UiLApLMFuHkMWIvdi1TeQjznUMD6Qs8K3yhcCwkB2AlJPvMt3HenLOnQNsI2SMvJr9V9Po3Ogtze_rbQZZ7NgmXnq59ByepovTgnbleHz4bOwl6MJ6rmHf_IiO_C7Sr5f2lZX7bhWH_Xaw.fFPR8dglkdqnTp_krfA-YfL-5tGdYN1w3ADU8Hx6f-Q&amp;dib_tag=se&amp;keywords=Cricket+Bat+Octopus+Grips&amp;qid=1793627135&amp;s=kitchen&amp;sprefix=%2Ckitchen%2C275&amp;sr=1-2-spons&amp;aref=5F6uBbpcWL&amp;sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&amp;psc=1" target="_blank" rel="noopener noreferrer">
-              <span class="buy-btn-icon">&#128722;</span> Buy on Amazon
-            </a>
-          </div>
-        </div>
-
-
         <!-- CARD 8: Double-Sided Tape -->
         <div class="comp-card" id="card-c8">
           <div class="comp-card-media" onclick="toggleComp('c8')">
             <img class="comp-img-large"
               src="Double_sided_tape.png"
-              alt="Double Sided Tape" loading="lazy">
+              alt="Double-Sided Tape" loading="lazy">
             <span class="comp-badge">Assembly &middot; Mounting</span>
           </div>
           <div class="comp-card-body">
@@ -2582,7 +2537,7 @@
                 aria-label="Toggle details">Details &#9662;</button>
             </div>
             <p class="comp-desc">High-strength double-sided adhesive mounting tape to securely bond sensors, motor driver,
-              and battery pack firmly to the chassis frame without vibration loosening.</p>
+              and the 18650 battery holder firmly to the chassis frame without vibration loosening.</p>
             <div class="comp-tags">
               <span class="spec-tag">Heavy-Duty Adhesion</span>
               <span class="spec-tag">Vibration-Damping</span>
@@ -2592,13 +2547,13 @@
             <div class="comp-details" id="c8">
               <div class="comp-detail-box">
                 <h4>What is it?</h4>
-                <p>A thick, heavy-duty double-sided acrylic/foam mounting tape designed for high-strength bonding on 3D-printed plastic, metal,
+                <p>A thick, heavy-duty double-sided acrylic/foam mounting tape designed for high-strength bonding on plastic, acrylic, metal,
                   and electronic circuit board surfaces.</p>
               </div>
               <div class="comp-detail-box">
                 <h4>Why do we use it?</h4>
-                <p>Allows rapid, clean, and vibration-absorbing mounting for the 7.4V LiPo battery pack, ultrasonic sensor mounts, and
-                  electronics directly to the 3D-printed chassis without requiring extra screws or drilling.</p>
+                <p>Allows rapid, clean, and vibration-absorbing mounting for the 18650 &times; 2 battery holder, ultrasonic sensors, and
+                  electronics directly onto the robot chassis without extra drilling.</p>
               </div>
             </div>
 
@@ -2606,414 +2561,6 @@
               <span class="buy-btn-icon">&#128722;</span> Buy on Amazon
             </a>
           </div>
-        </div>
-
-        <!-- CARD 9: 4WD Robot Chassis Platform (3D Printed AutonomousRacerBot.stl) -->
-        <div class="comp-card" id="card-c9">
-          <div class="comp-card-media comp-card-media-3d" id="media-c9">
-            <model-viewer
-              id="chassisModelViewer"
-              src="3D_Models/AutonomousRacerBot.glb"
-              alt="Interactive 3D Model of Autonomous Racer Bot Chassis (AutonomousRacerBot.stl)"
-              camera-controls
-              touch-action="pan-y"
-              auto-rotate
-              auto-rotate-delay="1200"
-              rotation-per-second="20deg"
-              shadow-intensity="1.2"
-              shadow-softness="0.6"
-              exposure="1.15"
-              interaction-prompt="auto"
-              loading="eager"
-              reveal="auto"
-              ar-status="not-presenting">
-              <div slot="poster" class="model-loading-placeholder">
-                <div class="model-spinner"></div>
-                <span>Loading 3D Model (AutonomousRacerBot.stl)...</span>
-              </div>
-            </model-viewer>
-
-            <span class="comp-badge">Chassis &middot; AutonomousRacerBot.stl</span>
-
-            <!-- Fullscreen / Expand Button in Top-Right Corner -->
-            <button type="button" class="viewer-fullscreen-btn" id="chassisFullscreenBtn" onclick="toggle3DFullscreen(event, 'media-c9')" aria-label="Toggle Fullscreen" title="Inspect 3D model in fullscreen">
-              <svg class="icon-expand" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
-              </svg>
-              <svg class="icon-compress" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
-                <path d="M4 14h6v6M20 10h-6V4M14 10l7-7M10 14L3 21"/>
-              </svg>
-            </button>
-
-            <!-- Obvious Exit Fullscreen Button visible in Fullscreen mode -->
-            <button type="button" class="viewer-exit-btn" id="chassisExitBtn" onclick="exit3DFullscreen(event, 'media-c9')" aria-label="Exit fullscreen" title="Exit fullscreen mode">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-              </svg>
-              <span>Exit Fullscreen</span>
-            </button>
-
-            <!-- Interaction hint for users -->
-            <div class="viewer-3d-hint" id="chassis3dHint">
-              <span>&#x27F2; Rotate &bull; Pinch / Scroll to zoom</span>
-            </div>
-          </div>
-          <div class="comp-card-body">
-            <div class="comp-header-row" onclick="toggleComp('c9')">
-              <div>
-                <h3 class="comp-name">4WD Robot Chassis Platform</h3>
-                <div class="comp-subtitle">3D-Printed Custom Base (AutonomousRacerBot.stl)</div>
-              </div>
-              <button class="toggle-btn" id="btn-c9" onclick="event.stopPropagation();toggleComp('c9')"
-                aria-label="Toggle details">Details &#9662;</button>
-            </div>
-            <p class="comp-desc">The structural skeleton that securely holds motors, electronics, battery, and sensors into a single mobile robot.</p>
-            <div class="comp-tags">
-              <span class="spec-tag">AutonomousRacerBot.stl</span>
-              <span class="spec-tag">4WD Platform</span>
-              <span class="spec-tag">Pre-Modeled Slots</span>
-              <span class="spec-tag">Rigid PLA / PETG</span>
-              <span class="spec-tag">Front Sensor Mounts</span>
-            </div>
-            <div class="comp-details" id="c9">
-              <div class="comp-detail-box">
-                <h4>What is it?</h4>
-                <p>A custom 3D-printable or laser-cut chassis baseplate with dedicated mounting points for 4x N20 gear
-                  motors, an L298N driver, an Arduino UNO, a 7.4V LiPo battery bay, and angled brackets for the three
-                  ultrasonic sensors.</p>
-              </div>
-              <div class="comp-detail-box">
-                <h4>Why do we use it?</h4>
-                <p>Keeps the robot compact, rigid, and organized. Ensures ultrasonic sensors are held at precise angles
-                  (Left 45&deg;, Center 0&deg;, Right 45&deg;) for optimal beam coverage without sensor vibration.</p>
-              </div>
-            </div>
-
-            <a class="buy-btn comp-download-btn" href="AutonomousRacerBot.stl" download="AutonomousRacerBot.stl" title="Download AutonomousRacerBot.stl 3D Print File">
-              <span class="buy-btn-icon">&#128190;</span> Download Chassis CAD (.STL)
-            </a>
-          </div>
-        </div>
-
-
-        <!-- CARD 10: Wheel 3D model x4 (Original Robojunkies.step) -->
-        <div class="comp-card" id="card-c10">
-          <div class="comp-card-media comp-card-media-3d" id="media-c10">
-            <model-viewer
-              id="wheelModelViewer"
-              src="3D_Models/Original_Robojunkies_wheel.glb"
-              alt="Interactive 3D Model of 3D-Printed Drive Wheel (Original Robojunkies.step)"
-              camera-controls
-              touch-action="pan-y"
-              auto-rotate
-              auto-rotate-delay="1200"
-              rotation-per-second="25deg"
-              shadow-intensity="1.2"
-              shadow-softness="0.5"
-              exposure="1.15"
-              interaction-prompt="auto"
-              loading="eager"
-              reveal="auto"
-              ar-status="not-presenting">
-              <div slot="poster" class="model-loading-placeholder">
-                <div class="model-spinner"></div>
-                <span>Loading 3D Model (Original Robojunkies.step)...</span>
-              </div>
-            </model-viewer>
-
-            <span class="comp-badge">3D Print &middot; Original Robojunkies.step</span>
-
-            <!-- Fullscreen / Expand Button in Top-Right Corner -->
-            <button type="button" class="viewer-fullscreen-btn" id="wheelFullscreenBtn" onclick="toggle3DFullscreen(event, 'media-c10')" aria-label="Toggle Fullscreen" title="Inspect 3D wheel model in fullscreen">
-              <svg class="icon-expand" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
-              </svg>
-              <svg class="icon-compress" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
-                <path d="M4 14h6v6M20 10h-6V4M14 10l7-7M10 14L3 21"/>
-              </svg>
-            </button>
-
-            <!-- Obvious Exit Fullscreen Button visible in Fullscreen mode -->
-            <button type="button" class="viewer-exit-btn" id="wheelExitBtn" onclick="exit3DFullscreen(event, 'media-c10')" aria-label="Exit fullscreen" title="Exit fullscreen mode">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-              </svg>
-              <span>Exit Fullscreen</span>
-            </button>
-
-            <!-- Interaction hint for users -->
-            <div class="viewer-3d-hint" id="wheel3dHint">
-              <span>&#x27F2; Rotate &bull; Pinch / Scroll to zoom</span>
-            </div>
-          </div>
-          <div class="comp-card-body">
-            <div class="comp-header-row" onclick="toggleComp('c10')">
-              <div>
-                <h3 class="comp-name">Wheel 3D model &times;4</h3>
-                <div class="comp-subtitle">3D-Printed Custom Drive Wheels (Original Robojunkies.step)</div>
-              </div>
-              <button class="toggle-btn" id="btn-c10" onclick="event.stopPropagation();toggleComp('c10')"
-                aria-label="Toggle details">Details &#9662;</button>
-            </div>
-            <p class="comp-desc">Four custom 3D-printed drive wheels engineered with a precision D-shaft hub fitting N20 gear motors. 3D print directly from CAD; wrap with rubber bat grip for high surface traction.</p>
-            <div class="comp-tags">
-              <span class="spec-tag">Original Robojunkies.step</span>
-              <span class="spec-tag">3D Printable PLA / PETG</span>
-              <span class="spec-tag">N20 D-Shaft Hub</span>
-              <span class="spec-tag">29mm Rim / 34mm with Grip</span>
-              <span class="spec-tag">4WD Set of 4</span>
-            </div>
-            <div class="comp-details" id="c10">
-              <div class="comp-detail-box">
-                <h4>What is it?</h4>
-                <p>Custom 3D-printable drive wheels featuring a lightweight 3-spoke rim, outer tire bead retention flange, and a precision-molded D-shaped center hub fitting standard N20 micro gear motor shafts.</p>
-              </div>
-              <div class="comp-detail-box">
-                <h4>Why do we use it?</h4>
-                <p>Enables 100% in-house manufacturing on any desktop 3D printer without buying commercial wheels. Paired with high-friction rubber bat grip tire sleeves, it provides rapid acceleration and skid-free differential cornering.</p>
-              </div>
-              <div class="comp-detail-box">
-                <h4>3D Printing Recommendations</h4>
-                <p>Print 4 pieces in PLA, PETG, or ABS with <strong>0.15mm layer height</strong> and <strong>60&ndash;100% infill</strong> to ensure a durable, snug D-shaft hub connection that won't strip under motor torque.</p>
-              </div>
-            </div>
-
-            <a class="buy-btn comp-download-btn" href="Original Robojunkies.step" download="Original Robojunkies.step" title="Download Original Robojunkies.step 3D CAD File">
-              <span class="buy-btn-icon">&#128190;</span> Download Wheel CAD (.STEP)
-            </a>
-          </div>
-        </div>
-
-
-        <!-- CARD 11: 3D-Printed N20 Motor Mounting Clamps (motor clamp.stl) -->
-        <div class="comp-card" id="card-c11">
-          <div class="comp-card-media comp-card-media-3d" id="media-c11">
-            <model-viewer
-              id="clampModelViewer"
-              src="3D_Models/motor_clamp.glb"
-              alt="Interactive 3D Model of 3D-Printed Motor Mounting Clamp (motor clamp.stl)"
-              camera-controls
-              touch-action="pan-y"
-              auto-rotate
-              auto-rotate-delay="1200"
-              rotation-per-second="25deg"
-              shadow-intensity="1.2"
-              shadow-softness="0.5"
-              exposure="1.15"
-              interaction-prompt="auto"
-              loading="eager"
-              reveal="auto"
-              ar-status="not-presenting">
-              <div slot="poster" class="model-loading-placeholder">
-                <div class="model-spinner"></div>
-                <span>Loading 3D Model (motor clamp.stl)...</span>
-              </div>
-            </model-viewer>
-
-            <span class="comp-badge">3D Print &middot; motor clamp.stl</span>
-
-            <!-- Fullscreen / Expand Button in Top-Right Corner -->
-            <button type="button" class="viewer-fullscreen-btn" id="clampFullscreenBtn" onclick="toggle3DFullscreen(event, 'media-c11')" aria-label="Toggle Fullscreen" title="Inspect 3D model in fullscreen">
-              <svg class="icon-expand" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
-              </svg>
-              <svg class="icon-compress" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
-                <path d="M4 14h6v6M20 10h-6V4M14 10l7-7M10 14L3 21"/>
-              </svg>
-            </button>
-
-            <!-- Obvious Exit Fullscreen Button visible in Fullscreen mode -->
-            <button type="button" class="viewer-exit-btn" id="clampExitBtn" onclick="exit3DFullscreen(event, 'media-c11')" aria-label="Exit fullscreen" title="Exit fullscreen mode">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-              </svg>
-              <span>Exit Fullscreen</span>
-            </button>
-
-            <!-- Interaction hint for users -->
-            <div class="viewer-3d-hint" id="clamp3dHint">
-              <span>&#x27F2; Rotate &bull; Pinch / Scroll to zoom</span>
-            </div>
-          </div>
-          <div class="comp-card-body">
-            <div class="comp-header-row" onclick="toggleComp('c11')">
-              <div>
-                <h3 class="comp-name">3D-Printed N20 Motor Mounting Clamps &times;4</h3>
-                <div class="comp-subtitle">Custom Motor Brackets (motor clamp.stl)</div>
-              </div>
-              <button class="toggle-btn" id="btn-c11" onclick="event.stopPropagation();toggleComp('c11')"
-                aria-label="Toggle details">Details &#9662;</button>
-            </div>
-            <p class="comp-desc">Four custom 3D-printed mounting brackets engineered to firmly clamp each N20 micro gear motor down onto the robot chassis, preventing motor vibration, slipping, and gear misalignment.</p>
-            <div class="comp-tags">
-              <span class="spec-tag">motor clamp.stl</span>
-              <span class="spec-tag">32mm &times; 13.5mm &times; 12mm</span>
-              <span class="spec-tag">M2/M2.5 Screw Fit</span>
-              <span class="spec-tag">PLA / PETG / ABS</span>
-              <span class="spec-tag">Anti-Vibration Clamp</span>
-            </div>
-            <div class="comp-details" id="c11">
-              <div class="comp-detail-box">
-                <h4>What is it?</h4>
-                <p>A precision-contoured 3D-printable bracket that wraps around the cylindrical and rectangular profile of an N20 micro metal gear motor. Features dual side mounting ears with through-holes for M2/M2.5 screws.</p>
-              </div>
-              <div class="comp-detail-box">
-                <h4>Why do we use it?</h4>
-                <p>High-speed skid-steering produces torque vibrations that can loosen adhesive or friction fits. These custom clamps mechanically lock each of the four gear motors directly into the chassis baseplate, ensuring 100% rigid power delivery to the wheels.</p>
-              </div>
-              <div class="comp-detail-box">
-                <h4>3D Printing Recommendations</h4>
-                <p>Print 4 pieces in PLA, PETG, or ABS with <strong>0.15mm &ndash; 0.20mm layer height</strong> and <strong>100% infill</strong> for maximum mechanical rigidity around the screw mounting ears.</p>
-              </div>
-            </div>
-
-            <a class="buy-btn comp-download-btn" href="motor clamp.stl" download="motor clamp.stl" title="Download motor clamp.stl 3D Print File">
-              <span class="buy-btn-icon">&#128190;</span> Download Motor Clamp CAD (.STL)
-            </a>
-          </div>
-        </div>
-
-
-        <!-- CARD 12: M2 x 10mm Socket Head Cap Bolts -->
-        <div class="comp-card" id="card-c12">
-          <div class="comp-card-media" onclick="toggleComp('c12')">
-            <img class="comp-img-large"
-              src="m2_socket_head_bolts.jpg"
-              alt="M2 x 10mm Socket Head Cap Stainless Steel 304 Bolt" loading="lazy">
-            <span class="comp-badge">Fasteners &middot; M2 &times; 10mm</span>
-          </div>
-          <div class="comp-card-body">
-            <div class="comp-header-row" onclick="toggleComp('c12')">
-              <div>
-                <h3 class="comp-name">M2 &times; 10mm Socket Head Cap Bolts</h3>
-                <div class="comp-subtitle">Stainless Steel 304 Allen Cap Machine Screws</div>
-              </div>
-              <button class="toggle-btn" id="btn-c12" onclick="event.stopPropagation();toggleComp('c12')"
-                aria-label="Toggle details">Details &#9662;</button>
-            </div>
-            <p class="comp-desc">High-tensile Grade 304 stainless steel socket head cap bolts used to firmly secure the 3D-printed motor clamps and hardware directly into the robot chassis.</p>
-            <div class="comp-tags">
-              <span class="spec-tag">M2 Metric Thread</span>
-              <span class="spec-tag">10mm Length</span>
-              <span class="spec-tag">Stainless Steel 304</span>
-              <span class="spec-tag">Allen Socket Drive</span>
-              <span class="spec-tag">Corrosion Resistant</span>
-            </div>
-            <div class="comp-details" id="c12">
-              <div class="comp-detail-box">
-                <h4>What is it?</h4>
-                <p>M2 diameter, 10mm long socket head cap bolts precision-machined from rustproof AISI 304 stainless steel. Features a cylindrical Allen key drive head for non-slip high-torque tightening in tight spaces.</p>
-              </div>
-              <div class="comp-detail-box">
-                <h4>Why do we use it?</h4>
-                <p>Passes directly through the mounting holes of the 3D-printed motor clamps (<code>motor clamp.stl</code>) and chassis slots. The socket head allows tight fastening with a hex key without stripping screw heads.</p>
-              </div>
-            </div>
-
-            <a class="buy-btn" href="https://robokits.co.in/robot-parts/nut-bolts-standoffs/allen-cap-socket-head-bolts/m2-x-10mm-socket-head-cap-stainless-steel-304-bolt-moq-12-pcs?srsltid=AYCX9vIl3XfMImSpwQeJgNYU7eYxyWvO1huRkra0ZrYR0H0_df9LIzPK" target="_blank" rel="noopener noreferrer">
-              <span class="buy-btn-icon">&#128722;</span> Buy on Robokits
-            </a>
-          </div>
-        </div>
-
-
-        <!-- CARD 13: Stainless Steel Hex Nuts x3 (M2 SS) -->
-        <div class="comp-card" id="card-c13">
-          <div class="comp-card-media" onclick="toggleComp('c13')">
-            <img class="comp-img-large"
-              src="m2_hex_nuts.jpg"
-              alt="EasyMech M2 Stainless Steel Hex Nuts" loading="lazy">
-            <span class="comp-badge">Fasteners &middot; M2 Hex Nuts</span>
-          </div>
-          <div class="comp-card-body">
-            <div class="comp-header-row" onclick="toggleComp('c13')">
-              <div>
-                <h3 class="comp-name">Stainless steel hex nuts &times;3</h3>
-                <div class="comp-subtitle">EasyMech M2 Stainless Steel Hexagonal Nuts</div>
-              </div>
-              <button class="toggle-btn" id="btn-c13" onclick="event.stopPropagation();toggleComp('c13')"
-                aria-label="Toggle details">Details &#9662;</button>
-            </div>
-            <p class="comp-desc">High-precision EasyMech M2 stainless steel hex nuts for locking motor clamp bolts, circuit mounts, and chassis structural joints securely against vibration.</p>
-            <div class="comp-tags">
-              <span class="spec-tag">EasyMech M2 SS</span>
-              <span class="spec-tag">Metric Hexagonal Nut</span>
-              <span class="spec-tag">Stainless Steel</span>
-              <span class="spec-tag">Anti-Vibration Lock</span>
-              <span class="spec-tag">Corrosion Resistant</span>
-            </div>
-            <div class="comp-details" id="c13">
-              <div class="comp-detail-box">
-                <h4>What is it?</h4>
-                <p>Precision-threaded M2 hexagonal nuts made from industrial-grade stainless steel. Engineered to mate smoothly with M2 socket head cap screws and machine bolts.</p>
-              </div>
-              <div class="comp-detail-box">
-                <h4>Why do we use it?</h4>
-                <p>Fastened underneath the robot chassis to lock the M2&times;10mm motor clamp bolts in place. Ensures that high-speed cornering and motor torque do not loosen the motor mounting brackets.</p>
-              </div>
-            </div>
-
-            <a class="buy-btn" href="https://robu.in/product/easymech-m2-ss-hex-nut-50-pcs/" target="_blank" rel="noopener noreferrer">
-              <span class="buy-btn-icon">&#128722;</span> Buy on Robu.in
-            </a>
-          </div>
-        </div>
-
-
-        <!-- CARD 14: M3 x 10mm Hex CSK Screws x3 -->
-        <div class="comp-card" id="card-c14">
-          <div class="comp-card-media" onclick="toggleComp('c14')">
-            <img class="comp-img-large"
-              src="m3_csk_screws.jpg"
-              alt="M3 x 10mm Hex (Allen) CSK High Tensile 10.9 Black Oxide Screw x3" loading="lazy">
-            <span class="comp-badge">Fasteners &middot; M3 &times; 10mm CSK</span>
-          </div>
-          <div class="comp-card-body">
-            <div class="comp-header-row" onclick="toggleComp('c14')">
-              <div>
-                <h3 class="comp-name">M3 &times; 10mm Hex CSK Screws &times;3</h3>
-                <div class="comp-subtitle">High Tensile Grade 10.9 Black Oxide Countersunk Screws</div>
-              </div>
-              <button class="toggle-btn" id="btn-c14" onclick="event.stopPropagation();toggleComp('c14')"
-                aria-label="Toggle details">Details &#9662;</button>
-            </div>
-            <p class="comp-desc">Three Grade 10.9 high-tensile black oxide countersunk (CSK) Allen screws (Dia. 3mm, Length 10mm) designed for flush, high-strength structural chassis and electronics fastening.</p>
-            <div class="comp-tags">
-              <span class="spec-tag">M3 Metric (3mm Dia.)</span>
-              <span class="spec-tag">10mm Length</span>
-              <span class="spec-tag">CSK Countersunk Flat Head</span>
-              <span class="spec-tag">Grade 10.9 High Tensile</span>
-              <span class="spec-tag">Black Oxide Coating</span>
-              <span class="spec-tag">Set of 3</span>
-            </div>
-            <div class="comp-details" id="c14">
-              <div class="comp-detail-box">
-                <h4>What is it?</h4>
-                <p>Heavy-duty Grade 10.9 alloy steel countersunk machine screws featuring a conical 90-degree flat head with an internal Allen hex socket drive and black oxide anti-corrosion finish.</p>
-              </div>
-              <div class="comp-detail-box">
-                <h4>Why do we use it?</h4>
-                <p>The countersunk head sits completely flush with the 3D-printed chassis baseplate, preventing protruding screw heads from catching on obstacles or floor carpet while securely mounting structural chassis elements and electronics standoffs.</p>
-              </div>
-            </div>
-
-            <a class="buy-btn" href="https://onlyscrews.in/products/m3-x-10mm-hex-allen-csk-high-tensile10-9-black-oxide-screw-dia-3mm-length-10mm?currency=INR&amp;country=IN&amp;variant=51455871484217&amp;stkn=6e84ebfba1b8&amp;utm_source=google&amp;utm_medium=cpc&amp;utm_campaign=Inderans_Campaign&amp;utm_content=Other_than_fasteners_wala_copy&amp;gad_source=1&amp;gad_campaignid=22229905346&amp;gclid=EAIaIQobChMIh7HMhZfrlwMVhYhmAh0E0QY9EAQYBSABEgKS3_D_BwE" target="_blank" rel="noopener noreferrer">
-              <span class="buy-btn-icon">&#128722;</span> Buy on OnlyScrews.in
-            </a>
-          </div>
-        </div>
-
-
-        <!-- Section-Wide 3D Package Download Banner -->
-        <div style="grid-column: 1 / -1; text-align: center; margin-top: 18px; padding: 22px 18px; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 14px;">
-          <h3 style="margin: 0 0 6px 0; font-size: 1.15rem; color: var(--heading);">Need All 3D Printable Models at Once?</h3>
-          <p style="margin: 0 0 14px 0; font-size: 0.92rem; color: var(--text-muted);">Download the consolidated CAD package containing Chassis (.STL &amp; .GLB), Wheels (.STEP &amp; .STL), and Motor Clamps (.STL) in a single ZIP file.</p>
-          <a class="buy-btn comp-download-btn" style="display: inline-flex; width: auto; padding: 12px 28px; background: linear-gradient(135deg, #059669, #10b981);" href="3D_Models/3D_Models.zip" download="3D_Models.zip" title="Download Complete 3D CAD Bundle">
-            <span class="buy-btn-icon">&#128230;</span> Download Complete 3D Models Package (.ZIP)
-          </a>
         </div>
 
       </div>
@@ -3035,7 +2582,7 @@
           <div class="flow-arrow">&#8595;</div>
           <div class="flow-box">L298N Motor Driver</div>
           <div class="flow-arrow">&#8595;</div>
-          <div class="flow-box">4&times; N20 Motors (4WD)</div>
+          <div class="flow-box">BO DC Gear Motors</div>
           <div class="flow-arrow">&#8595;</div>
           <div class="flow-box">Robot Movement</div>
         </div>
@@ -3226,15 +2773,15 @@
             </tr>
             <tr>
               <td><strong>OUT1 &amp; OUT2</strong></td>
-              <td>Left Motor Pair Outputs</td>
+              <td>Left Motor Outputs</td>
               <td>Motors Terminal</td>
-              <td>Connects to 2&times; Left N20 motors wired in parallel</td>
+              <td>Connects to Left BO DC gear motors wired in parallel</td>
             </tr>
             <tr>
               <td><strong>OUT3 &amp; OUT4</strong></td>
-              <td>Right Motor Pair Outputs</td>
+              <td>Right Motor Outputs</td>
               <td>Motors Terminal</td>
-              <td>Connects to 2&times; Right N20 motors wired in parallel</td>
+              <td>Connects to Right BO DC gear motors wired in parallel</td>
             </tr>
           </tbody>
         </table>
@@ -3254,15 +2801,15 @@
           <tbody>
             <tr>
               <td><strong>L298N 12V / VMS (+)</strong></td>
-              <td>7.4V Battery Red Wire (+)</td>
+              <td>18650 Battery Holder Red Wire (+)</td>
               <td><span class="pin-badge">+7.4V</span></td>
-              <td>Powers the 4 N20 gear motors. <strong>Verify polarity!</strong></td>
+              <td>From 2&times; 3.7V 18650 Li-Ion cells in series via ON/OFF switch. <strong>Verify polarity!</strong></td>
             </tr>
             <tr>
               <td><strong>L298N GND (&minus;)</strong></td>
-              <td>7.4V Battery Black Wire (&minus;)</td>
+              <td>18650 Battery Holder Black Wire (&minus;)</td>
               <td><span class="pin-badge">0V (GND)</span></td>
-              <td>Ground reference from battery</td>
+              <td>Ground reference from 2&times; 18650 battery holder</td>
             </tr>
             <tr>
               <td><strong>L298N GND (&minus;)</strong></td>
@@ -3319,7 +2866,7 @@
         <div class="circuit-viewport" id="circuitViewport" onclick="handleViewportClick(event)">
           <img src="circuit_image.png"
                id="circuitImg"
-               alt="Autonomous Racer Robot 4WD Full Circuit Diagram — Arduino UNO, L298N Motor Driver, Ultrasonic Sensors, N20 Motors, 7.4V LiPo Battery"
+               alt="Autonomous Racer Robot Full Circuit Diagram — Arduino UNO, L298N Motor Driver, Ultrasonic Sensors, BO DC Motors, 2x 18650 Li-Ion Battery Holder"
                draggable="false"
                loading="lazy" />
 
@@ -3509,34 +3056,34 @@ float getDistance(int trigPin, int echoPin) {
     <!-- SECTION 7: ASSEMBLY -->
     <section id="assembly">
       <h2>Assembly &amp; Setup</h2>
-      <p>Follow these steps to build the 4WD Autonomous Racer Robot.</p>
+      <p>Follow these steps to build the Autonomous Racer Robot (BO DC Motor Edition).</p>
       <ol class="steps">
         <li>
           <div class="step-num"></div>
           <div class="step-content">
-            <h3>Prepare the 4WD Chassis</h3>
-            <p>Lay out the 4WD chassis base and identify the mounting points for the four N20 motors, L298N driver, Arduino UNO, 7.4V LiPo battery (mounted with vibration-damping double-sided tape), and front sensor bumper.</p>
+            <h3>Prepare the Robot Chassis</h3>
+            <p>Lay out your robot chassis base and identify the mounting positions for the BO DC gear motors, L298N driver, Arduino UNO, 18650 &times; 2 battery holder (with ON/OFF switch), and front ultrasonic sensors.</p>
           </div>
         </li>
         <li>
           <div class="step-num"></div>
           <div class="step-content">
-            <h3>Attach 4&times; N20 Motors &amp; Wheels (with 3D Clamps &amp; Bat Grip)</h3>
-            <p>Secure the four 300 RPM N20 micro gear motors into the chassis slots (2 on the left, 2 on the right) using the 3D-printed motor clamps (<code>motor clamp.stl</code>) fastened tightly with M2&times;10mm socket head cap bolts and locked with M2 stainless steel hex nuts. Cut four rings from the rubber cricket bat grip and stretch them securely over the 34mm small wheels for enhanced octopus-pattern traction, then press each wheel firmly onto the motor output shaft.</p>
+            <h3>Attach BO DC Gear Motors &amp; Wheels</h3>
+            <p>Mount the 1:48 single-axis BO DC gear motors securely on the left and right sides of the chassis so all output shafts align horizontally, then fit the drive wheels snugly onto each motor shaft.</p>
           </div>
         </li>
         <li>
           <div class="step-num"></div>
           <div class="step-content">
             <h3>Mount Arduino UNO and L298N Motor Driver</h3>
-            <p>Fasten the Arduino UNO and the L298N motor driver module securely onto the chassis platform using the three M3&times;10mm countersunk hex screws (<code>m3_csk_screws.jpg</code>) and standoffs, ensuring flush seating with the chassis baseplate.</p>
+            <p>Secure the Arduino UNO and the L298N motor driver module onto the chassis platform using double-sided mounting tape or standoffs, leaving clear access to the Arduino USB port and L298N screw terminals.</p>
           </div>
         </li>
         <li>
           <div class="step-num"></div>
           <div class="step-content">
             <h3>Mount the Three Ultrasonic Sensors</h3>
-            <p>Insert the three HC-SR04 ultrasonic sensors into the front angled bumper housing (Left, Center, Right), ensuring they face horizontally outward.</p>
+            <p>Mount the three HC-SR04 ultrasonic sensors at the front of the robot (Left, Center, Right), ensuring they face horizontally outward with an unobstructed view.</p>
           </div>
         </li>
         <li>
@@ -3549,15 +3096,15 @@ float getDistance(int trigPin, int echoPin) {
         <li>
           <div class="step-num"></div>
           <div class="step-content">
-            <h3>Connect Motor Wires to L298N</h3>
-            <p>Wire the two left N20 motors in parallel to OUT1 &amp; OUT2 terminals. Wire the two right N20 motors in parallel to OUT3 &amp; OUT4. Connect L298N logic inputs IN1&rarr;D9, IN2&rarr;D8, IN3&rarr;D11, and IN4&rarr;D12 on the Arduino.</p>
+            <h3>Connect BO Motor Wires to L298N</h3>
+            <p>Wire the left BO DC motors to the OUT1 &amp; OUT2 screw terminals and the right BO DC motors to OUT3 &amp; OUT4. Connect L298N logic inputs IN1&rarr;D9, IN2&rarr;D8, IN3&rarr;D11, and IN4&rarr;D12 on the Arduino.</p>
           </div>
         </li>
         <li>
           <div class="step-num"></div>
           <div class="step-content">
-            <h3>Mount Battery &amp; Connect 7.4V LiPo Power Supply</h3>
-            <p>Secure the 7.4V LiPo battery pack firmly to the central chassis floor using heavy-duty double-sided mounting tape for vibration damping. Connect the battery (+) to L298N 12V, battery (&minus;) to L298N GND, and connect L298N GND to Arduino GND for common ground. <strong>Carefully double-check polarity!</strong></p>
+            <h3>Mount 18650 Battery Holder &amp; Connect 7.4V Li-Ion Power</h3>
+            <p>Keep the battery holder switch <strong>OFF</strong> while wiring. Secure the 18650 &times; 2 battery holder to the chassis using heavy-duty double-sided tape. Insert two 3.7V 2900mAh Li-Ion cells observing +/&minus; polarity and close the slide cover. Connect the holder Red wire (+) to L298N 12V, Black wire (&minus;) to L298N GND, and link L298N GND to Arduino GND for common ground. <strong>Carefully double-check polarity!</strong></p>
           </div>
         </li>
         <li>
@@ -3571,7 +3118,7 @@ float getDistance(int trigPin, int echoPin) {
           <div class="step-num"></div>
           <div class="step-content">
             <h3>Test the Robot</h3>
-            <p>Place the robot on a clear floor, switch on the 7.4V battery, and observe it cruising forward smoothly at PWM 255 and steering away from obstacles when detected!</p>
+            <p>Place the robot on a clear floor, slide the 18650 battery holder switch to <strong>ON</strong>, and observe it cruising forward smoothly at PWM 255 and steering away from obstacles when detected!</p>
           </div>
         </li>
       </ol>
@@ -3580,7 +3127,7 @@ float getDistance(int trigPin, int echoPin) {
     <!-- SECTION 8: TESTING -->
     <section id="testing">
       <h2>Final Testing Checklist</h2>
-      <p>Go through each item before letting the 4WD robot run freely. Click an item to mark it done.</p>
+      <p>Go through each item before letting the robot run freely. Click an item to mark it done.</p>
       <div class="card">
         <ul class="checklist">
           <li>
@@ -3589,7 +3136,7 @@ float getDistance(int trigPin, int echoPin) {
           </li>
           <li>
             <div class="check-box" onclick="toggleCheck(this)"></div><span class="checklist-label"
-              onclick="toggleCheck(this.previousElementSibling)">L298N motor driver power LED lit steadily</span>
+              onclick="toggleCheck(this.previousElementSibling)">L298N motor driver power LED lit steadily when battery switch is ON</span>
           </li>
           <li>
             <div class="check-box" onclick="toggleCheck(this)"></div><span class="checklist-label"
@@ -3597,31 +3144,19 @@ float getDistance(int trigPin, int echoPin) {
           </li>
           <li>
             <div class="check-box" onclick="toggleCheck(this)"></div><span class="checklist-label"
-              onclick="toggleCheck(this.previousElementSibling)">7.4V Battery polarity verified (+ Red, &minus; Black)</span>
+              onclick="toggleCheck(this.previousElementSibling)">2&times; 18650 Li-Ion cells inserted with correct polarity and holder wires verified (+ Red, &minus; Black)</span>
           </li>
           <li>
             <div class="check-box" onclick="toggleCheck(this)"></div><span class="checklist-label"
-              onclick="toggleCheck(this.previousElementSibling)">Both left N20 motors rotate forward when commanded</span>
+              onclick="toggleCheck(this.previousElementSibling)">Left BO DC motors rotate forward when commanded</span>
           </li>
           <li>
             <div class="check-box" onclick="toggleCheck(this)"></div><span class="checklist-label"
-              onclick="toggleCheck(this.previousElementSibling)">Both right N20 motors rotate forward when commanded</span>
+              onclick="toggleCheck(this.previousElementSibling)">Right BO DC motors rotate forward when commanded</span>
           </li>
           <li>
             <div class="check-box" onclick="toggleCheck(this)"></div><span class="checklist-label"
-              onclick="toggleCheck(this.previousElementSibling)">All 4 N20 gear motors securely fastened to chassis with 3D-printed clamps (motor clamp.stl)</span>
-          </li>
-          <li>
-            <div class="check-box" onclick="toggleCheck(this)"></div><span class="checklist-label"
-              onclick="toggleCheck(this.previousElementSibling)">All M2&times;10mm socket head cap bolts and stainless steel hex nuts tightened securely</span>
-          </li>
-          <li>
-            <div class="check-box" onclick="toggleCheck(this)"></div><span class="checklist-label"
-              onclick="toggleCheck(this.previousElementSibling)">All M3&times;10mm CSK countersunk hex screws seated flush and tightened securely</span>
-          </li>
-          <li>
-            <div class="check-box" onclick="toggleCheck(this)"></div><span class="checklist-label"
-              onclick="toggleCheck(this.previousElementSibling)">All 4 small wheels fitted with rubber bat grip tire sleeves, spinning freely without rubbing</span>
+              onclick="toggleCheck(this.previousElementSibling)">All BO motors and wheels securely mounted and spinning freely without rubbing</span>
           </li>
           <li>
             <div class="check-box" onclick="toggleCheck(this)"></div><span class="checklist-label"
@@ -4083,11 +3618,7 @@ float getDistance(int trigPin, int echoPin) {
 
     // Auto-dismiss interaction hint after first user interaction or timeout
     (function init3DViewer() {
-      var viewers = [
-        { mvId: 'chassisModelViewer', hintId: 'chassis3dHint', fallback: '3D_Models/AutonomousRacerBot.glb' },
-        { mvId: 'wheelModelViewer', hintId: 'wheel3dHint', fallback: '3D_Models/Original_Robojunkies_wheel.glb' },
-        { mvId: 'clampModelViewer', hintId: 'clamp3dHint', fallback: '3D_Models/motor_clamp.glb' }
-      ];
+      var viewers = [];
 
       viewers.forEach(function (item) {
         var mv = document.getElementById(item.mvId);
